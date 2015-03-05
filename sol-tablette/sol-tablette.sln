@@ -1,7 +1,13 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{B9BE6241-5A6D-279F-0F94-ED3D0D49492E}") = "sol-tablette", "Assembly-CSharp-firstpass.csproj", "{47381B90-8E5D-AC9F-F103-B4DC0BE7B695}"
+EndProject
 Project("{B9BE6241-5A6D-279F-0F94-ED3D0D49492E}") = "sol-tablette", "Assembly-CSharp.csproj", "{EA70E041-6CB7-5DA7-3D44-CFE3FF8B036F}"
+EndProject
+Project("{B9BE6241-5A6D-279F-0F94-ED3D0D49492E}") = "sol-tablette", "Assembly-UnityScript-firstpass.unityproj", "{F4928004-C026-6EF8-3F06-B8ECADA7983B}"
+EndProject
+Project("{B9BE6241-5A6D-279F-0F94-ED3D0D49492E}") = "sol-tablette", "Assembly-UnityScript-Editor.unityproj", "{5BF4FE4A-A58E-A1E7-7B70-B6773AAD59BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +15,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47381B90-8E5D-AC9F-F103-B4DC0BE7B695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47381B90-8E5D-AC9F-F103-B4DC0BE7B695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47381B90-8E5D-AC9F-F103-B4DC0BE7B695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47381B90-8E5D-AC9F-F103-B4DC0BE7B695}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA70E041-6CB7-5DA7-3D44-CFE3FF8B036F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA70E041-6CB7-5DA7-3D44-CFE3FF8B036F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA70E041-6CB7-5DA7-3D44-CFE3FF8B036F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA70E041-6CB7-5DA7-3D44-CFE3FF8B036F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4928004-C026-6EF8-3F06-B8ECADA7983B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4928004-C026-6EF8-3F06-B8ECADA7983B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4928004-C026-6EF8-3F06-B8ECADA7983B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4928004-C026-6EF8-3F06-B8ECADA7983B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF4FE4A-A58E-A1E7-7B70-B6773AAD59BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF4FE4A-A58E-A1E7-7B70-B6773AAD59BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF4FE4A-A58E-A1E7-7B70-B6773AAD59BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF4FE4A-A58E-A1E7-7B70-B6773AAD59BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																													GlobalSection(MonoDevelopProperties) = preSolution
+																																																																		GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

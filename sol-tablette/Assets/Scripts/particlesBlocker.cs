@@ -33,7 +33,6 @@ public class particlesBlocker : MonoBehaviour {
 
 			while (i < numCollisionEvents) 
 			{
-				
 				// COORDONNEES DE L'IMPACT
 				Vector3 collisionHitLoc = collisionEvents[i].intersection;
 				
