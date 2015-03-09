@@ -46,8 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\changeScene.cs" />
+     <Compile Include="Assets\Scripts\endScript.cs" />
+     <Compile Include="Assets\Scripts\killThemAll.cs" />
      <Compile Include="Assets\Scripts\managerScript.cs" />
+     <Compile Include="Assets\Scripts\onMouseClick.cs" />
      <Compile Include="Assets\Scripts\particlesBlocker.cs" />
+     <Compile Include="Assets\Scripts\videoScript.cs" />
+     <Compile Include="Assets\gameScript.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

@@ -232,24 +232,39 @@ public class managerScript : MonoBehaviour {
 
 	}
 
+	bool checkPosition(int[] index){
+		RaycastHit hit = new RaycastHit();
+		for (int i=0; i < 3; i++) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.GetTouch(i).position);
+			if (Physics.Raycast (ray, out hit)) {
+				if(hit.transform.gameObject.tag=="NoObjects"){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	void FixedUpdate () {
 		if (Input.touchCount >= 3) 
 		{
 			int[] index = new int[3];
 			int iteration = Input.touchCount/3;
-			Debug.Log("total:"+Input.touchCount+" it:"+iteration);
 			for(int i =0; i < iteration; i++){
 				index[0]=i;
 				index[1]=i+1;
 				index[2]=i+2;
-				if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i+1).phase == TouchPhase.Began && Input.GetTouch(i+2).phase == TouchPhase.Began) {
+				if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i+1).phase == TouchPhase.Began && Input.GetTouch(i+2).phase == TouchPhase.Began) 
+				{
 					int dot = checkAlignment(Input.GetTouch(i).position, Input.GetTouch(i+1).position, Input.GetTouch(i+2).position);
 					if(dot == 0){
-						//Instantiation de la lampe
-						light = new Lamp(index);
-						//on change la direction du faisceau
-						if(light.CheckTouchID()){
-							light.updateDirection();
+						if(checkPosition(index)){
+							//Instantiation de la lampe
+							light = new Lamp(index);
+							//on change la direction du faisceau
+							if(light.CheckTouchID()){
+								light.updateDirection();
+							}
 						}
 					}else if(dot == 1){
 						//Instantiation du miroir
@@ -264,9 +279,11 @@ public class managerScript : MonoBehaviour {
 						int dot = checkAlignment(Input.GetTouch(i).position, Input.GetTouch(i+1).position, Input.GetTouch(i+2).position);
 						if(dot == 0){
 							if(light!=null){
-								//on change la direction du faisceau
-								if(light.CheckTouchID()){
-									light.updateDirection();
+								if(checkPosition(index)){
+									//on change la direction du faisceau
+									if(light.CheckTouchID()){
+										light.updateDirection();
+									}
 								}
 							}
 						}else if(dot==1){
