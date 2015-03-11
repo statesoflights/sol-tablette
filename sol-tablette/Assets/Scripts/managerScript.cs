@@ -235,7 +235,7 @@ public class managerScript : MonoBehaviour {
 	bool checkPosition(int[] index){
 		RaycastHit hit = new RaycastHit();
 		for (int i=0; i < 3; i++) {
-			Ray ray = Camera.main.ScreenPointToRay (Input.GetTouch(i).position);
+			Ray ray = Camera.main.ScreenPointToRay (Input.GetTouch(index[i]).position);
 			if (Physics.Raycast (ray, out hit)) {
 				if(hit.transform.gameObject.tag=="NoObjects"){
 					return false;

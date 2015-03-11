@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class killThemAll : MonoBehaviour {
+public class lampMoving : MonoBehaviour {
 
 	private Lamp light;
+	public static bool gameBegin=false;
 
     /*
 	* Objet Lampe
@@ -22,15 +23,15 @@ public class killThemAll : MonoBehaviour {
 		
 		private int[] touchId;
 		
-		public Lamp(int[] index){
+		public Lamp(){
 			point = new Vector3[3];
 			posPoint = new int[2];
 			touchId = new int[3];
 			
 			for (int i=0; i<3; i++) {
-				point[i] = Camera.main.ScreenToWorldPoint (Input.GetTouch(index[i]).position);
+				point[i] = Camera.main.ScreenToWorldPoint (Input.GetTouch(i).position);
 				point[i].y=1;
-				touchId[i]=Input.GetTouch(index[i]).fingerId;
+				touchId[i]=Input.GetTouch(i).fingerId;
 			}
 			
 			float dist1 = Vector3.Distance(point[0],point[1]);
@@ -105,7 +106,7 @@ public class killThemAll : MonoBehaviour {
 
 	}
 
-	bool checkPosition(int[] index){
+	bool checkPosition(){
 		RaycastHit hit = new RaycastHit();
 		for (int i=0; i < 3; i++) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.GetTouch(i).position);
@@ -119,32 +120,26 @@ public class killThemAll : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (Input.touchCount >= 3) 
+		if ((Input.touchCount == 3)&&(!gameScript.timeOut)) 
 		{
-			int[] index = new int[3];
-			int iteration = Input.touchCount/3;
-			for(int i =0; i < iteration; i++){
-				index[0]=i;
-				index[1]=i+1;
-				index[2]=i+2;
-				if(Input.GetTouch(i).phase == TouchPhase.Began && Input.GetTouch(i+1).phase == TouchPhase.Began && Input.GetTouch(i+2).phase == TouchPhase.Began) 
-				{
-					if(checkPosition(index)){
-						//Instantiation de la lampe
-						light = new Lamp(index);
-						//on change la direction du faisceau
-						if(light.CheckTouchID()){
-							light.updateDirection();
-						}
+			if(Input.GetTouch(0).phase == TouchPhase.Began && Input.GetTouch(1).phase == TouchPhase.Began && Input.GetTouch(2).phase == TouchPhase.Began) 
+			{
+				if(checkPosition()){
+					//Instantiation de la lampe
+					light = new Lamp();
+					gameBegin=true;
+					//on change la direction du faisceau
+					if(light.CheckTouchID()){
+						light.updateDirection();
 					}
-				} else {
-					if(Input.GetTouch(i).phase == TouchPhase.Moved && Input.GetTouch(i+1).phase == TouchPhase.Moved && Input.GetTouch(i+2).phase == TouchPhase.Moved){
-						if(light!=null){
-							if(checkPosition(index)){
-								//on change la direction du faisceau
-								if(light.CheckTouchID()){
-									light.updateDirection();
-								}
+				}
+			} else {
+				if(Input.GetTouch(0).phase == TouchPhase.Moved && Input.GetTouch(1).phase == TouchPhase.Moved && Input.GetTouch(2).phase == TouchPhase.Moved){
+					if(light!=null){
+						if(checkPosition()){
+							//on change la direction du faisceau
+							if(light.CheckTouchID()){
+								light.updateDirection();
 							}
 						}
 					}

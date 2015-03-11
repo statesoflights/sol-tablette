@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class onMouseClick : MonoBehaviour {
+public class menuScript : MonoBehaviour {
 	
 	void Update () {
 		if(Input.touchCount == 1) {
