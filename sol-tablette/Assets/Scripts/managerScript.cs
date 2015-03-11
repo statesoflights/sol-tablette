@@ -259,6 +259,7 @@ public class managerScript : MonoBehaviour {
 					int dot = checkAlignment(Input.GetTouch(i).position, Input.GetTouch(i+1).position, Input.GetTouch(i+2).position);
 					if(dot == 0){
 						if(checkPosition(index)){
+							Camera.main.GetComponent<AudioSource>().Play();
 							//Instantiation de la lampe
 							light = new Lamp(index);
 							//on change la direction du faisceau
@@ -267,6 +268,7 @@ public class managerScript : MonoBehaviour {
 							}
 						}
 					}else if(dot == 1){
+						Camera.main.GetComponent<AudioSource>().Play();
 						//Instantiation du miroir
 						mirror = new Mirror(index);
 						//on change la direction du faisceau

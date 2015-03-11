@@ -12,6 +12,7 @@ public class levelScript : MonoBehaviour {
 		level = new int[10];
 		level [0] = 1;
 		level [1] = 5;
+		level [2] = 6;
 		levelSelected = false;
 		if (saveLoad.isExists ()) {
 			saveLoad.Load();
@@ -38,8 +39,11 @@ public class levelScript : MonoBehaviour {
 					}
 				}
 				if(levelSelected) {
-					if(saveLoad.game.isActived[currentLevel])
+					if(saveLoad.game.isActived[currentLevel]){
+						GameObject.Find("Background").GetComponent<AudioSource>().Play();
 						Application.LoadLevel(level[currentLevel]);
+
+					}
 				}
 			}
 

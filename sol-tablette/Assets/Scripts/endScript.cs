@@ -19,7 +19,12 @@ public class endScript : MonoBehaviour {
 			count++;
 		}
 		else{
-			Debug.Log("Next");
+			GameObject background = GameObject.Find("Background");
+			if(background.tag!="2"){
+				saveLoad.game.isActived[int.Parse(background.tag)+1]=true;
+				saveLoad.Save();
+			}
+			Application.LoadLevel(Application.loadedLevel+1);
 		}
 	}
 
