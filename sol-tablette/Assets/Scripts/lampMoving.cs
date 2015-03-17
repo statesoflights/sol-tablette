@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class lampMoving : MonoBehaviour {
-
+	
 	private Lamp light;
 	public static bool gameBegin=false;
-
-    /*
+	
+	/*
 	* Objet Lampe
 	* */
 	public class Lamp {
@@ -37,11 +37,12 @@ public class lampMoving : MonoBehaviour {
 			float dist1 = Vector3.Distance(point[0],point[1]);
 			float dist2 = Vector3.Distance(point[0],point[2]);
 			float dist3 = Vector3.Distance(point[1],point[2]);
-			
+
 			float distMin = dist1;
 			Vector3 lookAt = point[2];
 			dirPoint = 2;
 			position = Vector3.Lerp(point[0],point[1], 0.5f);
+			position = Vector3.Lerp(position,point[2], 0.5f);
 			posPoint[0]=0;
 			posPoint[1]=1;
 			
@@ -50,6 +51,7 @@ public class lampMoving : MonoBehaviour {
 				lookAt = point[1];
 				dirPoint = 1;
 				position = Vector3.Lerp(point[0],point[2], 0.5f);
+				position = Vector3.Lerp(position,point[1], 0.5f);
 				posPoint[0]=0;
 				posPoint[1]=2;
 			}else if(dist3 < distMin){
@@ -57,6 +59,7 @@ public class lampMoving : MonoBehaviour {
 				lookAt = point[0];
 				dirPoint = 0;
 				position = Vector3.Lerp(point[1],point[2], 0.5f);
+				position = Vector3.Lerp(position,point[0], 0.5f);
 				posPoint[0]=1;
 				posPoint[1]=2;
 			}
@@ -103,9 +106,9 @@ public class lampMoving : MonoBehaviour {
 				return true;
 			}
 		}
-
+		
 	}
-
+	
 	bool checkPosition(){
 		RaycastHit hit = new RaycastHit();
 		for (int i=0; i < 3; i++) {
@@ -118,7 +121,7 @@ public class lampMoving : MonoBehaviour {
 		}
 		return true;
 	}
-
+	
 	void FixedUpdate () {
 		if ((Input.touchCount == 3)&&(!gameScript.timeOut)) 
 		{
@@ -147,5 +150,5 @@ public class lampMoving : MonoBehaviour {
 			}
 		}
 	}
-
+	
 }

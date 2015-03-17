@@ -23,6 +23,8 @@ TagManager:
   - 0
   - Timer
   - Score
+  - WelcomeScreen
+  - Check
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/managerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Lamp.cs">
     <Files>
-      <File FileName="Assets/Scripts/menuScript.cs" Line="12" Column="53" />
-      <File FileName="Assets/Scripts/managerScript.cs" Line="271" Column="54" />
-      <File FileName="Assets/Scripts/levelScript.cs" Line="43" Column="72" />
+      <File FileName="Assets/Scripts/managerScript.cs" Line="64" Column="25" />
+      <File FileName="Assets/Scripts/Lamp.cs" Line="66" Column="14" />
+      <File FileName="Assets/Scripts/Mirror.cs" Line="17" Column="25" />
+      <File FileName="Assets/Scripts/lampMoving.cs" Line="31" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
