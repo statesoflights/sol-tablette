@@ -6,8 +6,9 @@ public class managerScript : MonoBehaviour {
 	/**
 	 * Objets utilisés par le manager
 	 * */
-	private Lamp light;
+	private Lamp lamp;
 	private Mirror mirror;
+	public static bool isPlaying;
 	
 	/**
 	 * Objet Miroir
@@ -215,7 +216,8 @@ public class managerScript : MonoBehaviour {
 	}
 	
 	void Start(){
-		light = null;
+		lamp = null;
+		isPlaying = true;
 	}
 	
 	int checkAlignment(Vector2 pos1, Vector2 pos2, Vector2 pos3){
@@ -251,7 +253,7 @@ public class managerScript : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		if (Input.touchCount >= 3) 
+		if ((Input.touchCount >= 3)&&(isPlaying)) 
 		{
 			int[] index = new int[3];
 			int iteration = Input.touchCount/3;
@@ -266,10 +268,10 @@ public class managerScript : MonoBehaviour {
 						if(checkPosition(index)){
 							Camera.main.GetComponent<AudioSource>().Play();
 							//Instantiation de la lampe
-							light = new Lamp(index);
+							lamp = new Lamp(index);
 							//on change la direction du faisceau
-							if(light.CheckTouchID()){
-								light.updateDirection();
+							if(lamp.CheckTouchID()){
+								lamp.updateDirection();
 							}
 						}
 					}else if(dot == 1){
@@ -285,11 +287,11 @@ public class managerScript : MonoBehaviour {
 					if(Input.GetTouch(i).phase == TouchPhase.Moved && Input.GetTouch(i+1).phase == TouchPhase.Moved && Input.GetTouch(i+2).phase == TouchPhase.Moved){
 						int dot = checkAlignment(Input.GetTouch(i).position, Input.GetTouch(i+1).position, Input.GetTouch(i+2).position);
 						if(dot == 0){
-							if(light!=null){
+							if(lamp!=null){
 								if(checkPosition(index)){
 									//on change la direction du faisceau
-									if(light.CheckTouchID()){
-										light.updateDirection();
+									if(lamp.CheckTouchID()){
+										lamp.updateDirection();
 									}
 								}
 							}
