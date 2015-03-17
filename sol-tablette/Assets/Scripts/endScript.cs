@@ -22,12 +22,9 @@ public class endScript : MonoBehaviour {
 			count++;
 		}
 		else{
-			GameObject background = GameObject.Find("Background");
-			if(background.tag!="2"){
-				saveLoad.game.isActived[int.Parse(background.tag)+1]=true;
-				saveLoad.Save();
-			}
-			Application.LoadLevel(Application.loadedLevel+1);
+			managerScript.isPlaying=false;
+			GameObject background = GameObject.Find("EndScreen");
+			background.transform.position = new Vector3(0.0f,2.0f,0.0f);
 		}
 	}
 

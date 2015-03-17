@@ -3,7 +3,7 @@ using System.Collections;
 
 public class lampMoving : MonoBehaviour {
 	
-	private Lamp light;
+	private Lamp lamp;
 	public static bool gameBegin=false;
 	
 	/*
@@ -129,20 +129,20 @@ public class lampMoving : MonoBehaviour {
 			{
 				if(checkPosition()){
 					//Instantiation de la lampe
-					light = new Lamp();
+					lamp = new Lamp();
 					gameBegin=true;
 					//on change la direction du faisceau
-					if(light.CheckTouchID()){
-						light.updateDirection();
+					if(lamp.CheckTouchID()){
+						lamp.updateDirection();
 					}
 				}
 			} else {
 				if(Input.GetTouch(0).phase == TouchPhase.Moved && Input.GetTouch(1).phase == TouchPhase.Moved && Input.GetTouch(2).phase == TouchPhase.Moved){
-					if(light!=null){
+					if(lamp!=null){
 						if(checkPosition()){
 							//on change la direction du faisceau
-							if(light.CheckTouchID()){
-								light.updateDirection();
+							if(lamp.CheckTouchID()){
+								lamp.updateDirection();
 							}
 						}
 					}
